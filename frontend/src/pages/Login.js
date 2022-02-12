@@ -15,6 +15,15 @@ class Login extends React.Component {
 
   }
 
+  // TODO: Try 'react-bind-decorator'
+  loginUser() {
+    try{
+      console.log(`Logging in user with ${this.state.username} and this password ${this.state.password}`);
+    } catch (err) {
+      console.log(this.state);
+    }  
+  }
+
   render() {
     return (
         <div className="Login">
@@ -24,13 +33,21 @@ class Login extends React.Component {
               <div className="Login-form">
                 <form>
                   <div className="input-container">
-                    <input className="Login-entry" placeholder="Username" type="text" name="uname" required />
+                    <input className="Login-entry"
+                    onChange={e => this.setState({
+                      username: e.target.value
+                    })} 
+                    placeholder="Username" type="text" name="uname" required  />
                   </div>
                   <div className="input-container">
-                    <input className="Login-entry" placeholder="Password" type="text" name="pass" required />
+                    <input className="Login-entry" 
+                    onChange={e => this.setState({
+                      password: e.target.value
+                    })}
+                    placeholder="Password" type="text" name="pass" required />
                   </div>
                   <div className="button-container">
-                    <input type="submit" />
+                    <input type="submit" onClick={(e) => this.loginUser(e)} />
                   </div>
                 </form>
               </div>             
