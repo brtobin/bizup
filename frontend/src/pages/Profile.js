@@ -36,7 +36,6 @@ const Profile = () => {
     };
   }, []);
 
-
   return (
       <div className="Profile">
         <header className="Profile-main">
@@ -54,11 +53,10 @@ const Profile = () => {
               {coins} points
             </p>
           </div>
-          <div className="Profile-QR">
-            <button>Get QR Code</button>
+          <div className="Profile-Edit">
+            <button>Edit Profile</button>
           </div>
         </header>
-        
       </div>
       )
 }
