@@ -42,3 +42,31 @@
     color: rgb(44, 43, 43);
     font-size: calc(10px + 2vmin);
 }
+
+.Login #Login-submit {
+    width: 200px;
+    height: 50px;
+    margin: 30px;
+    padding: 10px 50px;
+    background-color: rgb(133, 130, 130);
+    border-radius: 50px;
+    border-width: 0px;
+    color: white;
+    font-size: 20px;
+    opacity: 0.6;
+    transition-duration: 0.3s;
+}
+
+.Login #Login-submit:hover {
+    width: 210px;
+    height: 60px;
+    margin: 30px;
+    padding: 10px 50px;
+    opacity: 1;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.Login #Login-submit:active {
+    cursor: pointer;
+    background-color: rgb(39, 37, 37);
+}

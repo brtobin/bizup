@@ -17,16 +17,11 @@ const Navbar = () => {
   const logoutUser = (e) => {
     console.log("Logging out");
     dispatch(logout());
-    console.log(userInfo);
-    if (userInfo === undefined) {
-      console.log("Logging out: " + userInfo)
-      navigate(resolvePath(redirectLogin), { replace: true });
-    }
-    
   } 
 
   useEffect(() => {
 		if (userInfo === undefined) {
+      console.log("Redirecting because userInfo = " + userInfo);
 			navigate(resolvePath(redirectLogin), { replace: true });
 		}
 	}, [navigate, userInfo, redirectLogin]);

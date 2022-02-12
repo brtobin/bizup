@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { resolvePath, useNavigate } from "react-router-dom";
 
 import { login } from "../actions/userActions";
+import Button from 'react-bootstrap/Button';
 
 
 const Login = () => {
@@ -52,7 +53,7 @@ const Login = () => {
                   placeholder="Password" type="password" name="pass" required />
                 </div>
                 <div className="button-container">
-                  <input type="submit" onClick={loginHandler} />
+                  <button id="Login-submit" onClick={loginHandler} >Sign In</button>
                 </div>
               </form>
             </div>             
