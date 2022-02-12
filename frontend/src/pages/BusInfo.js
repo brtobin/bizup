@@ -1,7 +1,7 @@
 import Modal from 'react-modal';
 import React, {useEffect, useState} from 'react';
 import { getUser } from "../actions/userActions";
-import challengeItem from '../components/ChallengeItem/challengeItem';
+import ChallengeItem from '../components/ChallengeItem/ChallengeItem';
 import BusChallengeAdd from '../components/BusChallengeAdd/BusChallengeAdd';
 import './BusInfo.css';
 import tacos from "../images/tacos.jpg";
