@@ -9,8 +9,8 @@ import { getUser } from "../actions/userActions";
 const Profile = () => {
 
   const [name, setName] = useState("");
-  const [location, getLocation] = useState("");
-  const [coins, getCoins] = useState("");
+  const [location, setLocation] = useState("");
+  const [coins, setCoins] = useState("");
 
   const { loading, error, userInfo } = useSelector((state) => {
 		return state.userAuth;
@@ -22,15 +22,17 @@ const Profile = () => {
   const getUserInfo = () => {
     dispatch(getUser());
     console.log(userInfo);
-    setName(userInfo.name);  
+    setName(userInfo.name);
+    setLocation(userInfo.location);
+    setCoins(userInfo.coins);
   }
 
 
-  useEffect(() => {
+  React.useEffect(() => {
     console.log('MyComponent onMount');
-    return (e) => {
-        getUserInfo(e);
-        console.log('MyComponent onUnmount');
+    getUserInfo();
+    return () => {
+        console.log('MyComponent onUnmount: ' + userInfo);
     };
   }, []);
 
@@ -46,10 +48,10 @@ const Profile = () => {
               {name}
             </p>
             <p>
-              Location: 
+              Location: {location}
             </p>
             <p>
-              points
+              {coins} points
             </p>
           </div>
           
