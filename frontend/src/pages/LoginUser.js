@@ -27,7 +27,7 @@ const LoginUser = (props) => {
   const loginHandler = (event) => {
 		event.preventDefault();
 		// dispatch(login(email, pwd));
-    dispatch(login("kb@progamer.com", "123456", "user"));
+    dispatch(login("kb@progamer.com", "123456", "users"));
 	};
 
   // Move to home page once userInfo populated
