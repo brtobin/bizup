@@ -1,13 +1,14 @@
 import React, {useState} from "react";
 import './Login.css';
-import {TextInput} from 'react-native';
+import axios from 'axios';
+
 
 class Login extends React.Component {
 
   constructor(props) {
     super();
     this.state = {
-      username: null,
+      email: null,
       password: null
     }
   }
@@ -19,7 +20,21 @@ class Login extends React.Component {
   // TODO: Try 'react-bind-decorator'
   loginUser() {
     try{
-      console.log(`Logging in user with ${this.state.username} and this password ${this.state.password}`);
+      let token;
+      const options = {
+        url: "",
+        method: "POST",
+        Header: {},
+      };
+      axios.post('localhost:5000/api/users/login', {
+        email: 'kb@progamer.com',
+        password: '123456'
+      })
+      .then(function (response) {
+        console.log(`Received token ${token}`);
+      }).catch(function (response) {
+        console.log(response.err);
+      })
     } catch (err) {
       console.log(this.state);
     }  
@@ -36,12 +51,11 @@ class Login extends React.Component {
                   <div className="input-container">
                     <input className="Login-entry"
                     onChange={e => this.setState({
-                      username: e.target.value
+                      email: e.target.value
                     })} 
-                    placeholder="Username" type="text" name="uname" required  />
+                    placeholder="Email" type="text" name="uname" required  />
                   </div>
                   <div className="input-container">
-                    <TextInput secureTextEntry={true} />
                     <input className="Login-entry" 
                     onChange={e => this.setState({
                       password: e.target.value
