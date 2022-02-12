@@ -4,27 +4,25 @@ import './BusChallengeAdd.css';
 
 const BusChallengeAdd = () => {
     return(
-    <Container className='mymodal'>
-        <Row>
-            <Col>
+        <form className='mymodal'>
+        
             <label>
                 Challenge Name:
             </label>
-            </Col>
-            <Col>
+           
                 <input type='text' />
-            </Col>
-        </Row>
-        <Row><Col><label>
+           
+        <label>
                 Coin reward:
-                </label></Col><Col>
+                </label>
                 <input type='text' />
-            </Col></Row>
+          
 
             <label>Challenge Description
                 <input type='text' />
             </label>
-    </Container>
+
+    </form>
 );}
 
 export default BusChallengeAdd;
