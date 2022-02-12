@@ -9,7 +9,8 @@ class Profile extends React.Component {
     super(props);
     this.state = {
       name: "Brianna",
-      locale: "Madison, WI"
+      locale: "Madison, WI",
+      points: 0
     }
   }
 
@@ -19,9 +20,12 @@ class Profile extends React.Component {
     let profileLocale = /* API CALL TO DB INDEXED BY USERNAME TO GET NAME*/
     "Madison, WI"
 
+    let profilePoints = /*  API CALL TO DB INDEXED BY USERNAME TO GET POINTS */ 2500;
+
     this.setState({
       name: profileName,
-      locale: profileLocale
+      locale: profileLocale,
+      points: profilePoints
     })   
   }
 
@@ -42,6 +46,9 @@ class Profile extends React.Component {
               </p>
               <p>
                 {this.state.locale}
+              </p>
+              <p>
+                {this.state.points} points
               </p>
             </div>
             
