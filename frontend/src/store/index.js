@@ -12,10 +12,9 @@ import {
 /* -------------------------------------------------------------------------- */
 
 const initialState = {
+	
 	userAuth: {
-		userInfo: localStorage.getItem("userInfo")
-			? JSON.parse(localStorage.getItem("userInfo"))
-			: null,
+		userInfo: sessionStorage.getItem("userInfo") ? JSON.parse(sessionStorage.getItem("userInfo")) : null,
 	},
 };
 
