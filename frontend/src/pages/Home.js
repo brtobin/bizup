@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Container from 'react-bootstrap/Container';
 
 
+
 const Home = () => {
   let info = {
     icon: 'https://img.icons8.com/doodle/48/000000/address-book.png',
@@ -23,19 +24,23 @@ const Home = () => {
   }
 
   function checkComplete() {
-    console.log('implement checkComplete in Hoe');  
+    this.checked = false;
+    console.log('implement checkComplete in Hoe');
   }
 
 
   return(
 
     <div className='Home'> 
+      <h1 className='taskHeader'>
+        Tasks List
+      </h1>
       <Container overflow='scroll'>
         {tasks.map( (task, index) => (
         <div key={index}>
-          <input type='checkbox' className='Checkbox' id={"task"+index}  onClick={checkComplete}></input>
-          
+          <Container>
           <label> {task.task} </label>
+          </Container>
         </div>
 
         ))}
