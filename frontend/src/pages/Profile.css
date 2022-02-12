@@ -14,7 +14,7 @@
     color: white;
   }
 
-.Profile-info {
+.Profile-Edit button {
 
 }
 
@@ -22,4 +22,30 @@
     margin: 1rem 0.2rem;
     border-radius: 1rem;
     cursor: zoom-in;
+  }
+
+  .Profile-Modal {
+    text-align: center;
+    margin-top: 20%;
+  }
+
+  .Profile-Modal h1 {
+    color: rgb(26, 22, 22);
+  }
+
+
+
+  .Profile-Modal button {
+    width: 200px;
+    height: 50px;
+    padding: 10px 50px;
+    background-color: rgb(133, 130, 130);
+    border-radius: 50px;
+    border-width: 0px;
+    color: white;
+    font-size: 20px;
+    opacity: 1;
+    justify-content: center;
+    align-content: center;
+    transition-duration: 0.3s;
   }

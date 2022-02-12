@@ -24,6 +24,9 @@ const initialState = {
 			? JSON.parse(sessionStorage.getItem("challenges"))
 			: null,
 	},
+	userUpdate: {
+		userInfo: sessionStorage.getItem("userInfo") ? JSON.parse(sessionStorage.getItem("userInfo")) : null,
+	}
 };
 
 const reducer = combineReducers({
