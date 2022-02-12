@@ -1,16 +1,12 @@
 const mongoose = require("mongoose");
 
-export const ChallengeSchema = new mongoose.Schema(
+const ChallengeSchema = new mongoose.Schema(
 	{
-		user: {
+		host: {
 			type: mongoose.Schema.Types.ObjectId,
-			ref: "User",
-			required: true,
+			ref: "Business",
+			require: true,
 		},
-        host: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Business",
-        },
 		category: {
 			type: String,
 			required: true,
@@ -29,13 +25,18 @@ export const ChallengeSchema = new mongoose.Schema(
 		},
 		startTime: {
 			type: Date,
-            required = true,
+			required: true,
 		},
 		expirationTime: {
 			type: Date,
-            required = true,
+			required: true,
 		},
-        completedUsers: [{type: mongoose.Schema.Types.ObjectId, ref: "User"}]
+		completedUsers: [
+			{
+				type: mongoose.Schema.Types.ObjectId,
+				ref: "User",
+			},
+		],
 	},
 	{ timestamps: true }
 );
