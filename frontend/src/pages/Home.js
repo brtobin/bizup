@@ -34,7 +34,8 @@ const Home = () => {
         {tasks.map( (task, index) => (
         <div key={index}>
           <input type='checkbox' className='Checkbox' id={"task"+index}  onClick={checkComplete}></input>
-          <label htmlFor={"task"+index}> {task.task} </label>
+          
+          <label> {task.task} </label>
         </div>
 
         ))}

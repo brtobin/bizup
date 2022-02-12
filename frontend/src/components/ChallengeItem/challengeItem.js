@@ -6,6 +6,7 @@ import './challengeItem.css';
 const challengeItem = (props) => {
 
     return(
+        
         <Container className='aroundBox'>
             <Row>
             <Col><img alt='' src={props.icon}></img></Col>
