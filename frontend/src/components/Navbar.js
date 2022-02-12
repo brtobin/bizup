@@ -12,7 +12,7 @@ const Navbar = () => {
   const { loading, error, userInfo } = useSelector((state) => {
 		return state.userAuth;
 	});
-  const redirectLogin = "/login";
+  const redirectLogin = "/login/user";
 
   const logoutUser = (e) => {
     console.log("Logging out");

@@ -28,7 +28,7 @@ const Profile = () => {
   }
 
 
-  React.useEffect(() => {
+  useEffect(() => {
     console.log('MyComponent onMount');
     getUserInfo();
     return () => {

@@ -30,7 +30,7 @@ const Home = () => {
   return(
 
     <div className='Home'> 
-      <Container overflow='scroll'>
+      {/* <Container overflow='scroll'>
         {tasks.map( (task, index) => (
         <div key={index}>
           <input type='checkbox' className='Checkbox' id={"task"+index}  onClick={checkComplete}></input>
@@ -39,7 +39,7 @@ const Home = () => {
         </div>
 
         ))}
-      </Container>
+      </Container> */}
     </div>
   
    
