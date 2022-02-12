@@ -45,4 +45,4 @@ const Challenge = mongoose.model("Challenge", ChallengeSchema);
 
 /* -------------------------------------------------------------------------- */
 
-module.exports = { Challenge, ChallengeSchema };
+module.exports = Challenge;
