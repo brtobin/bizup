@@ -67,7 +67,7 @@ const addChallenge = async (req, res) => {
 };
 
 const getAllChallenges = async (req, res) => {
-	const challenges = await Challenge.find();
+	const challenges = await Challenge.find().populate("host");
 
 	console.log(challenges);
 

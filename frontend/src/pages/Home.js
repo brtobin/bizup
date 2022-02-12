@@ -1,51 +1,43 @@
-import React from 'react'
-import challengeItem from '../components/ChallengeItem/challengeItem'
-import './Home.css'
-import 'bootstrap/dist/css/bootstrap.css';
-import Container from 'react-bootstrap/Container';
-
-
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import ChallengeItem from "../components/ChallengeItem/ChallengeItem";
+import { listChallenges } from "../actions/challengeActions";
+import "./Home.css";
+import "bootstrap/dist/css/bootstrap.css";
+import Container from "react-bootstrap/Container";
 
 const Home = () => {
-  let info = {
-    icon: 'https://img.icons8.com/doodle/48/000000/address-book.png',
-    title: 'This is challenge 2',
-    host: 'Target',
-    reward: 1000,
-    expDate: '10/19/2022'
-  }
+	const dispatch = useDispatch();
+	const { loading, error, challenges } = useSelector((state) => {
+		return state.challengeList;
+	});
 
-  let tasks = [];
-  for (let i=0; i<100; i++){
-    tasks.push({
-      complete: 0,
-      task: challengeItem(info)
-    })
-  }
+	useEffect(() => {
+		dispatch(listChallenges());
+	}, [dispatch]);
 
-  function checkComplete() {
-    this.checked = false;
-    console.log('implement checkComplete in Hoe');
-  }
+	console.log(Array.isArray(challenges));
 
+	return (
+		<div className="Home">
+			<Container overflow="scroll">
+				<h1>Challenges</h1>
+				{Array.isArray(challenges) &&
+					challenges.map((task, index) => {
+						return (
+							<ChallengeItem
+								key={index}
+								icon={task.icon}
+								reward={task.reward}
+								title={task.title}
+								host={task.host.name}
+								expDate={task.expirationTime}
+							/>
+						);
+					})}
+			</Container>
+		</div>
+	);
+};
 
-  return(
-
-    <div className='Home'> 
-      <Container overflow='scroll'>
-        {tasks.map( (task, index) => (
-        <div key={index}>
-    
-          <label> {task.task} </label>
-        </div>
-
-        ))}
-      </Container>
-    </div>
-  
-   
- 
-  );
-}
-
-export default Home
+export default Home;

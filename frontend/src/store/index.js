@@ -9,12 +9,20 @@ import {
 	userUpdateReducer,
 } from "../reducers/userReducer";
 
+import { challengeListReducer } from "../reducers/challengeReducer";
+
 /* -------------------------------------------------------------------------- */
 
 const initialState = {
-	
 	userAuth: {
-		userInfo: sessionStorage.getItem("userInfo") ? JSON.parse(sessionStorage.getItem("userInfo")) : null,
+		userInfo: localStorage.getItem("userInfo")
+			? JSON.parse(sessionStorage.getItem("userInfo"))
+			: null,
+	},
+	challengeList: {
+		challenges: localStorage.getItem("challenges")
+			? JSON.parse(sessionStorage.getItem("challenges"))
+			: null,
 	},
 };
 
@@ -23,6 +31,7 @@ const reducer = combineReducers({
 	userRegister: userRegisterReducer,
 	userDetails: userDetailsReducer,
 	userUpdate: userUpdateReducer,
+	challengeList: challengeListReducer,
 });
 
 const middleware = [thunk];
