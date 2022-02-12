@@ -23,12 +23,6 @@ const Home = () => {
     })
   }
 
-  function checkComplete() {
-    this.checked = false;
-    console.log('implement checkComplete in Hoe');
-  }
-
-
   return(
 
     <div className='Home'> 
