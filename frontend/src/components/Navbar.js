@@ -12,19 +12,29 @@ const Navbar = () => {
   const { loading, error, userInfo } = useSelector((state) => {
 		return state.userAuth;
 	});
-  const redirectLogin = "/login/user";
+  const redirectLogin = "/getstarted";
+
 
   const logoutUser = (e) => {
     console.log("Logging out");
     dispatch(logout());
+    console.log("Redirecting because userInfo = " + userInfo);
+    navigate(resolvePath(redirectLogin), { replace: true });
   } 
 
-  useEffect(() => {
-		if (userInfo === undefined) {
-      console.log("Redirecting because userInfo = " + userInfo);
-			navigate(resolvePath(redirectLogin), { replace: true });
-		}
-	}, [navigate, userInfo, redirectLogin]);
+  const loginNavHandler = (e) => {
+    navigate(resolvePath(redirectLogin), { replace: true });
+  } 
+
+  const checkProfile = (e) => {
+    if (userInfo.type === "user") {
+      let redirectProfile = `/profile/${userInfo._id}`;
+      navigate(resolvePath(redirectProfile));
+    } else {
+      let redirectProfile = `/bus_info/${userInfo._id}`;
+      navigate(resolvePath(redirectProfile));
+    }
+  }
 
   return (
     <nav>
@@ -32,7 +42,19 @@ const Navbar = () => {
         <h2>Bizzup</h2>
         <div className="navbar-right">
           <Link to="/">Feed</Link>
-          <button onClick={(e) => logoutUser(e)}>Logout</button>
+          { userInfo ?
+            (
+              <div>
+                <button onClick={(e) => checkProfile(e)}>Profile</button>
+                <button onClick={(e) => logoutUser(e)}>Logout</button> 
+              </div>
+            )
+            :
+            (
+              <button onClick={(e) => loginNavHandler(e)}>Sign In</button> 
+            ) 
+          }
+          
       </div>
       </div>
     </nav>

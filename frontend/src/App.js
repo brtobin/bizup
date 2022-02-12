@@ -17,11 +17,11 @@ function App() {
         <Navbar/>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/getStarted" element={<GetStarted />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/getstarted" element={<GetStarted />} />
+          <Route path="/profile/:id" element={<Profile />} />
           <Route path="/login/user" element={<LoginUser />} />
           <Route path="/login/business" element={<LoginBus />} />
-          <Route path="/bus_info" element={<BusInfo />} />
+          <Route path="/bus_info/:id" element={<BusInfo />} />
         </Routes>
     </Router>
   );
