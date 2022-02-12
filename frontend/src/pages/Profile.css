@@ -1,0 +1,25 @@
+.Profile {
+    text-align: center;
+  }
+
+
+.Profile-main {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+
+.Profile-info {
+
+}
+
+.Profile-pic img {
+    margin: 1rem 0.2rem;
+    border-radius: 1rem;
+    cursor: zoom-in;
+  }
