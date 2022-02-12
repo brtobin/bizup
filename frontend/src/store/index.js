@@ -16,6 +16,9 @@ const initialState = {
 	userAuth: {
 		userInfo: sessionStorage.getItem("userInfo") ? JSON.parse(sessionStorage.getItem("userInfo")) : null,
 	},
+	userUpdate: {
+		userInfo: sessionStorage.getItem("userInfo") ? JSON.parse(sessionStorage.getItem("userInfo")) : null,
+	}
 };
 
 const reducer = combineReducers({

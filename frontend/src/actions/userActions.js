@@ -1,4 +1,5 @@
 import axios from "axios";
+import { colours } from "nodemon/lib/config/defaults";
 
 import {
 	USER_LOGIN_FAIL,
@@ -140,7 +141,7 @@ export const getUser = (id) => {
 	};
 };
 
-export const updateProfile = (user) => {
+export const updateProfile = (updateName, updateLoc) => {
 	return async (dispatch, getState) => {
 		try {
 			dispatch({ type: USER_UPDATE_REQUEST });
@@ -157,14 +158,17 @@ export const updateProfile = (user) => {
 					Authorization: `Bearer ${userInfo.token}`,
 				},
 				data: {
-					_id: user.id,
-					name: user.name,
-					email: user.email,
-					password: user.password,
+					_id: userInfo._id,
+					name: updateName,
+					location: updateLoc,
+					email: userInfo.email,
+					password: userInfo.password,
 				},
 			};
 
 			const resp = await axios(options);
+
+			console.log(resp.status);
 
 			dispatch({
 				type: USER_UPDATE_SUCCESS,
