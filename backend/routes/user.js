@@ -12,9 +12,9 @@ router.post("/", catchAsync(control.addUser));
 
 router.post("/login", catchAsync(control.authUser));
 
-router.get("/profile", catchAsync(control.getProfile));
+router.get("/profile", isAuth, catchAsync(control.getProfile));
 
-router.put("/profile", catchAsync(control.updateProfile));
+router.put("/profile", isAuth, catchAsync(control.updateProfile));
 
 /* -------------------------------------------------------------------------- */
 
