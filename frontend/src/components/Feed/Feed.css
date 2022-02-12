@@ -1,0 +1,80 @@
+.feed {
+    background: #ffffff;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 1rem 0;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  }
+  
+  .feed .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .feed .header .user {
+    display: flex;
+    gap: 0.4rem;
+  }
+  
+  .feed .header .user img {
+    width: 4.2rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .feed .header .user .userinfo small {
+    color: gray;
+  }
+  
+  .feed .header .edit i {
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 0.4rem;
+  }
+  
+  .feed .header .edit i:hover {
+    background: #cfcfcf57;
+  }
+  
+  .feed .image img {
+    margin: 1rem 0.2rem;
+    border-radius: 1rem;
+    cursor: zoom-in;
+  }
+  
+  .feed .buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4rem;
+    margin: 0.2rem;
+  }
+  
+  .feed .buttons i {
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 0.4rem;
+  }
+  
+  .feed .buttons i:hover {
+    background: #cfcfcf57;
+  }
+  
+  .feed .buttons .rightbuttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .feed .viewcomments {
+    color: gray;
+    cursor: pointer;
+  }
+  
+  .feed .viewcomments:hover {
+    text-decoration: underline;
+  }
