@@ -1,16 +1,45 @@
-import React from 'react'
-import logo from '../logo.svg';
+import React, {useState} from "react";
+import './Login.css';
 
-const Home = () => {
+class Login extends React.Component {
+
+  constructor(props) {
+    super();
+    this.state = {
+      username: null,
+      password: null
+    }
+  }
+
+  componentDidMount() {
+
+  }
+
+  render() {
     return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          This is the Login Page
-        </p>
-      </header>
-    </div>
-    )
+        <div className="Login">
+          <header className="Login-main">
+            <div className="Login-form">
+              <form>
+              <div className="input-container">
+                <label>Username </label>
+                <input type="text" name="uname" required />
+              </div>
+              <div className="input-container">
+                <label>Password </label>
+                <input type="text" name="pass" required />
+              </div>
+              <div className="button-container">
+                <input type="submit" />
+              </div>
+              </form>
+            </div>
+            
+          </header>
+          
+        </div>
+        )
+  }
 }
 
-export default Home
+export default Login;
