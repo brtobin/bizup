@@ -2,6 +2,7 @@ const bcrypt = require("bcryptjs");
 
 const businesses = [
 	{
+		type: "business",
 		name: "XY Enterprises",
 		email: "xy@progamer.com",
 		password: bcrypt.hashSync("123456", 11),

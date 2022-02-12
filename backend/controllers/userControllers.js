@@ -31,6 +31,7 @@ const addUser = async (req, res) => {
 			location: newUser.location,
 			coins: newUser.coins,
 			achievements: newUser.achievements,
+			type: newUser.type,
 			token: generateToken(newUser._id),
 		});
 	} else {
@@ -53,6 +54,7 @@ const authUser = async (req, res) => {
 			location: user.location,
 			coins: user.coins,
 			achievements: user.achievements,
+			type: user.type,
 			token: generateToken(user._id),
 		});
 	} else {
@@ -73,6 +75,7 @@ const getProfile = async (req, res) => {
 			location: user.location,
 			coins: user.coins,
 			achievements: user.achievements,
+			type: newUser.type,
 		});
 	} else {
 		res.status(404);
@@ -111,6 +114,7 @@ const updateProfile = async (req, res) => {
 			location: updatedUser.location,
 			coins: updatedUser.coins,
 			achievements: updatedUser.achievements,
+			type: updatedUser.type,
 			token: generateToken(updatedUser._id),
 		});
 	} else {

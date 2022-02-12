@@ -32,6 +32,7 @@ const addBusiness = async (req, res) => {
 			image: newBusiness.image,
 			description: newBusiness.description,
 			challenges: newBusiness.challenges,
+			type: newBusiness.type,
 			token: generateToken(newBusiness._id),
 		});
 	} else {
@@ -54,6 +55,7 @@ const authBusiness = async (req, res) => {
 			image: business.image,
 			description: business.description,
 			challenges: business.challenges,
+			type: business.type,
 			token: generateToken(business._id),
 		});
 	} else {
@@ -74,6 +76,7 @@ const getProfile = async (req, res) => {
 			image: business.image,
 			description: business.description,
 			challenges: business.challenges,
+			type: business.type,
 		});
 	} else {
 		res.status(404);
@@ -112,6 +115,7 @@ const updateProfile = async (req, res) => {
 			image: updatedBusiness.image,
 			description: updatedBusiness.description,
 			challenges: updatedBusiness.challenges,
+			type: updatedBusiness.type,
 			token: generateToken(updatedBusiness._id),
 		});
 	} else {
