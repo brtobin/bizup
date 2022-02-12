@@ -7,7 +7,7 @@ import Container from 'react-bootstrap/Container';
 
 const Home = () => {
   let info = {
-    icon: './../images/icons8-address-book-48.png',
+    icon: 'https://img.icons8.com/doodle/48/000000/address-book.png',
     title: 'This is challenge 2',
     host: 'Target',
     reward: 1000,
@@ -23,7 +23,7 @@ const Home = () => {
   }
 
   function checkComplete() {
-    console.log('true');  
+    console.log('implement checkComplete in Hoe');  
   }
 
 
@@ -34,7 +34,8 @@ const Home = () => {
         {tasks.map( (task, index) => (
         <div key={index}>
           <input type='checkbox' className='Checkbox' id={"task"+index}  onClick={checkComplete}></input>
-          <label htmlFor={"task"+index}> {task.task} </label>
+          
+          <label> {task.task} </label>
         </div>
 
         ))}

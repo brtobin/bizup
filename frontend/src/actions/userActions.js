@@ -16,13 +16,13 @@ import {
 	USER_UPDATE_FAIL,
 } from "../constants/userConst";
 
-export const login = (email, password) => {
+export const login = (email, password, type) => {
 	return async (dispatch) => {
 		try {
 			dispatch({ type: USER_LOGIN_REQUEST });
 
 			const options = {
-				url: "/api/users/login",
+				url: `/api/${type}/login`,
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -32,6 +32,8 @@ export const login = (email, password) => {
 					password,
 				},
 			};
+
+			
 
 			const resp = await axios(options);
 
@@ -109,7 +111,7 @@ export const getUser = (id) => {
 			dispatch({ type: USER_DETAILS_REQUEST });
 
 			const {
-				userAuth: { userInfo },
+				userAuth: { userInfo, userType},
 			} = getState();
 
 			// const options = {

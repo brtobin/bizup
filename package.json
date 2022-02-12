@@ -27,6 +27,7 @@
 		"concurrently": "^7.0.0",
 		"ip": "^1.1.5",
 		"nodemon": "^2.0.15",
-		"react-bootstrap": "^2.1.2"
+		"react-bootstrap": "^2.1.2",
+		"redux-devtools-extension": "^2.13.9"
 	}
 }

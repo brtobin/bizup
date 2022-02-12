@@ -1,31 +1,32 @@
 import React, {useState, useEffect} from "react";
 import './Login.css';
 import { useDispatch, useSelector } from "react-redux";
-import { resolvePath, useNavigate } from "react-router-dom";
+import { resolvePath, useNavigate, useLocation } from "react-router-dom";
 
 import { login } from "../actions/userActions";
 import Button from 'react-bootstrap/Button';
 
 
-const Login = () => {
+const LoginBus = (props) => {
 
   const [email, setEmail] = useState("");
-  const [pwd, setPwd] = useState("");
+  const [pwd, setPwd] = useState("");;
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { loading, error, userInfo } = useSelector((state) => {
+  const { loading, error, userInfo} = useSelector((state) => {
 		return state.userAuth;
 	});
 
   const redirectHome = "/";
 
+
   // run login handler to update redux state
   const loginHandler = (event) => {
 		event.preventDefault();
 		// dispatch(login(email, pwd));
-    dispatch(login("kb@progamer.com", "123456"));
+    dispatch(login("kb@progamer.com", "123456", "businesses"));
 	};
 
   // Move to home page once userInfo populated
@@ -64,4 +65,4 @@ const Login = () => {
       )
 }
 
-export default Login;
+export default LoginBus;

@@ -1,9 +1,11 @@
 .Home{
     text-align:center;
     padding-top: 10%;
+    background-color: #282c34;
 }
 
 .Checkbox{
     width: 30px;
     height: 30px;
+    margin: 5px;
 }
