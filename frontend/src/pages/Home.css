@@ -1,4 +1,9 @@
 .Home{
     text-align:center;
-    
+    padding-top: 10%;
+}
+
+.Checkbox{
+    width: 30px;
+    height: 30px;
 }
