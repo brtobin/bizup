@@ -26,12 +26,13 @@ const Home = () => {
 					challenges.map((task, index) => {
 						return (
 							<ChallengeItem
-								key={index}
+								key={task._id}
 								icon={task.icon}
 								reward={task.reward}
 								title={task.title}
 								host={task.host.name}
 								expDate={task.expirationTime}
+								id={task._id}
 							/>
 						);
 					})}
