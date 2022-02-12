@@ -54,7 +54,9 @@ const Profile = () => {
               {coins} points
             </p>
           </div>
-          
+          <div className="Profile-QR">
+            <button>Get QR Code</button>
+          </div>
         </header>
         
       </div>
