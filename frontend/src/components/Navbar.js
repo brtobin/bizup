@@ -30,6 +30,9 @@ class Navbar extends React.Component {
       <nav>
         <div className="container">
           <h2>Bizzup</h2>
+          <div className="navbar-right">
+            <p>Feed</p>
+        </div>
         </div>
       </nav>
     );
