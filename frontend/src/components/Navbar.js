@@ -14,6 +14,7 @@ const Navbar = () => {
 	});
   const redirectLogin = "/getstarted";
 
+
   const logoutUser = (e) => {
     console.log("Logging out");
     dispatch(logout());
@@ -25,6 +26,16 @@ const Navbar = () => {
     navigate(resolvePath(redirectLogin), { replace: true });
   } 
 
+  const checkProfile = (e) => {
+    if (userInfo.type === "user") {
+      let redirectProfile = `/profile/${userInfo._id}`;
+      navigate(resolvePath(redirectProfile));
+    } else {
+      let redirectProfile = `/bus_info/${userInfo._id}`;
+      navigate(resolvePath(redirectProfile));
+    }
+  }
+
   return (
     <nav>
       <div className="container">
@@ -33,13 +44,17 @@ const Navbar = () => {
           <Link to="/">Feed</Link>
           { userInfo ?
             (
-              <button onClick={(e) => logoutUser(e)}>Logout</button> 
+              <div>
+                <button onClick={(e) => checkProfile(e)}>Profile</button>
+                <button onClick={(e) => logoutUser(e)}>Logout</button> 
+              </div>
             )
             :
             (
               <button onClick={(e) => loginNavHandler(e)}>Sign In</button> 
             ) 
           }
+          
       </div>
       </div>
     </nav>
