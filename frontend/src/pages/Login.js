@@ -25,7 +25,6 @@ const Login = () => {
 		event.preventDefault();
 		// dispatch(login(email, pwd));
     dispatch(login("kb@progamer.com", "123456"));
-    console.log(userInfo);
 	};
 
   // Move to home page once userInfo populated

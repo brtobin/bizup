@@ -1,41 +1,48 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "./Navbar.css";
-import { Link } from "react-router-dom"
+import { Link, useNavigate, resolvePath } from "react-router-dom";
 
-class Navbar extends React.Component {
+import { logout } from "../actions/userActions";
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "Brianna"
+const Navbar = () => {
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { loading, error, userInfo } = useSelector((state) => {
+		return state.userAuth;
+	});
+  const redirectLogin = "/login";
+
+  const logoutUser = (e) => {
+    console.log("Logging out");
+    dispatch(logout());
+    console.log(userInfo);
+    if (userInfo === undefined) {
+      console.log("Logging out: " + userInfo)
+      navigate(resolvePath(redirectLogin), { replace: true });
     }
-  }
-
-  getUserName() {
-    let profileName = /* API CALL TO DATABASE INDEXED BY USERNAME TO GET NAME*/ "Brianna";
-
-    this.setState({
-      name: profileName
-    })
     
-  }
+  } 
 
-  componentDidMount() {
-    this.getUserName();  
-  }
+  useEffect(() => {
+		if (userInfo === undefined) {
+			navigate(resolvePath(redirectLogin), { replace: true });
+		}
+	}, [navigate, userInfo, redirectLogin]);
 
-  render() {
-    return (
-      <nav>
-        <div className="container">
-          <h2>Bizzup</h2>
-          <div className="navbar-right">
-            <Link to="/">Feed</Link>
-        </div>
-        </div>
-      </nav>
-    );
-  }
+  return (
+    <nav>
+      <div className="container">
+        <h2>Bizzup</h2>
+        <div className="navbar-right">
+          <Link to="/">Feed</Link>
+          <button onClick={(e) => logoutUser(e)}>Logout</button>
+      </div>
+      </div>
+    </nav>
+  );
+  
 }
 
 export default Navbar;
