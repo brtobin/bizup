@@ -2,6 +2,7 @@ import Modal from 'react-modal';
 import React, {useEffect, useState} from 'react';
 import { getUser } from "../actions/userActions";
 import challengeItem from '../components/ChallengeItem/challengeItem';
+import BusChallengeAdd from '../components/BusChallengeAdd/BusChallengeAdd';
 import './BusInfo.css';
 
 const customStyles = {
@@ -29,7 +30,7 @@ const BusInfo = () => {
         if(1===1){
             return;
         } else {
-            let butt = document.getElementById('openModal');
+            let butt = document.getElementById('addChallenge');
             butt.className='offButton';
             butt.disabled=true;
         }
@@ -58,6 +59,7 @@ const BusInfo = () => {
             <button id='addChallenge' className='onButton' disabled={false} onClick={setModalIsOpenToTrue}>+</button>
             <Modal isOpen={modalIsOpen}>
                 <button onClick={setModalIsOpenToFalse}>x</button>
+                <BusChallengeAdd />
             </Modal>
             </div>
             <h1>{info.name}</h1>
