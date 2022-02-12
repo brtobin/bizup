@@ -24,6 +24,7 @@
 	"homepage": "https://github.com/brtobin/bizup#readme",
 	"dependencies": {
 		"concurrently": "^7.0.0",
+		"ip": "^1.1.5",
 		"nodemon": "^2.0.15"
 	}
 }

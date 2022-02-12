@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import './Login.css';
+import {TextInput} from 'react-native';
 
 class Login extends React.Component {
 
@@ -40,6 +41,7 @@ class Login extends React.Component {
                     placeholder="Username" type="text" name="uname" required  />
                   </div>
                   <div className="input-container">
+                    <TextInput secureTextEntry={true} />
                     <input className="Login-entry" 
                     onChange={e => this.setState({
                       password: e.target.value
