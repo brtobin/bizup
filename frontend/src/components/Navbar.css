@@ -1,0 +1,82 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .pfp {
+    width: 4.2rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  img {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  .create-btn {
+    display: inline-block;
+    padding: 0.6rem 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 2rem;
+    transition: all 300ms ease;
+    font-size: 0.9rem;
+    color: #ffffff;
+    background: #6f53f3;
+  }
+  
+  .create-btn:hover {
+    opacity: 0.8;
+  }
+  
+  nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    padding: 0.7rem 0;
+    background: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  }
+  
+  nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav .searchbar {
+    padding: 0.6rem 1rem;
+    border-radius: 2rem;
+    background: rgba(138, 131, 131, 0.322);
+  }
+  
+  nav .searchbar input {
+    width: 30vw;
+    background: transparent;
+    margin-left: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  nav .searchbar input::placeholder {
+    color: "gray";
+  }
+  
+  .leftstuff {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+  }
+  
+  @media screen and (max-width: 992px) {
+    nav .searchbar {
+      display: none;
+    }
+    nav .create-btn {
+      display: none;
+    }
+  }
