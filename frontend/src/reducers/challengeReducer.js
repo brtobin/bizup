@@ -14,6 +14,7 @@ import {
 	CHALLENGE_DELETE_REQUEST,
 	CHALLENGE_DELETE_SUCCESS,
 	CHALLENGE_DELETE_FAIL,
+	CHALLENGE_PUT_REQUEST,
 } from "../constants/challengeConst";
 
 export const challengeListReducer = (state = { challenges: [], loading: false }, action) => {
@@ -28,3 +29,13 @@ export const challengeListReducer = (state = { challenges: [], loading: false },
 			return state;
 	}
 };
+
+export const playerChallengeReducer = (state = {}, action) => {
+	switch (action.type) {
+		case CHALLENGE_PUT_REQUEST:
+			return {};
+		default:
+			return state;
+
+	}
+}

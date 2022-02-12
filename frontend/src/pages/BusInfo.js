@@ -4,6 +4,7 @@ import { getUser } from "../actions/userActions";
 import ChallengeItem from '../components/ChallengeItem/ChallengeItem';
 import BusChallengeAdd from '../components/BusChallengeAdd/BusChallengeAdd';
 import './BusInfo.css';
+import tacos from "../images/tacos.jpg";
 
 import { updateProfile } from "../actions/userActions";
 import { useDispatch } from 'react-redux';
@@ -21,7 +22,6 @@ const customStyles = {
 
 const BusInfo = () => {
     let business_mode = false;
-
     const [userComplete, setUserComplete] = useState("");
     const dispatch = useDispatch();
 
@@ -67,7 +67,7 @@ const BusInfo = () => {
 
     return(
         <React.Fragment> 
-            <img alt="" src='https://img.icons8.com/doodle/48/000000/address-book.png'></img>
+            <img alt="" src={tacos}></img>
             <div>
             <button id='addChallenge' className='onButton' disabled={false} onClick={setModalIsOpenToTrue}>+</button>
             <div className="BusInfo-MarkUser">

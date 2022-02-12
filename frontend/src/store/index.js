@@ -9,7 +9,7 @@ import {
 	userUpdateReducer,
 } from "../reducers/userReducer";
 
-import { challengeListReducer } from "../reducers/challengeReducer";
+import { challengeListReducer, playerChallengeReducer } from "../reducers/challengeReducer";
 
 /* -------------------------------------------------------------------------- */
 
@@ -35,6 +35,7 @@ const reducer = combineReducers({
 	userDetails: userDetailsReducer,
 	userUpdate: userUpdateReducer,
 	challengeList: challengeListReducer,
+	playerChallenge: playerChallengeReducer,
 });
 
 const middleware = [thunk];
