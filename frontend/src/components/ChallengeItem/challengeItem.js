@@ -35,7 +35,7 @@ const ChallengeItem = (props) => {
 
 	const openModal = () => {
 	
-		if (userInfo) {
+		if (userInfo && (userInfo.type === "business")) {
 			setModalIsOpenToTrue();
 		}
 
