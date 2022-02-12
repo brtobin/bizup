@@ -32,16 +32,15 @@ const Home = () => {
   return(
 
     <div className='Home'> 
-      {/* <Container overflow='scroll'>
+      <Container overflow='scroll'>
         {tasks.map( (task, index) => (
         <div key={index}>
-          <Container>
+    
           <label> {task.task} </label>
-          </Container>
         </div>
 
         ))}
-      </Container> */}
+      </Container>
     </div>
   
    
