@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const connectDB = require("./config/database");
+const connectDB = require("../config/database");
 
 const users = require("./users");
 const businesses = require("./businesses");
+const challenges = require("./challenges");
 
 const User = require("../models/userModel");
 const Business = require("../models/businessModel");
