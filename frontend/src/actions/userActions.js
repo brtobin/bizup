@@ -141,7 +141,7 @@ export const getUser = (id) => {
 	};
 };
 
-export const updateProfile = (updateName, updateLoc) => {
+export const updateProfile = (updateName, updateLoc, updateCoins) => {
 	return async (dispatch, getState) => {
 		try {
 			dispatch({ type: USER_UPDATE_REQUEST });
@@ -159,8 +159,9 @@ export const updateProfile = (updateName, updateLoc) => {
 				},
 				data: {
 					_id: userInfo._id,
-					name: updateName,
-					location: updateLoc,
+					name: updateName ? updateName : userInfo.name,
+					location: updateLoc ? updateLoc : userInfo.location,
+					coins: updateCoins ? updateCoins : userInfo.coins,
 					email: userInfo.email,
 					password: userInfo.password,
 				},
