@@ -2,15 +2,11 @@ const mongoose = require("mongoose");
 
 export const ChallengeSchema = new mongoose.Schema(
 	{
-		user: {
-			type: mongoose.Schema.Types.ObjectId,
-			ref: "User",
-			required: true,
-		},
         host: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Business",
-        },
+			require: true,
+		},
 		category: {
 			type: String,
 			required: true,
