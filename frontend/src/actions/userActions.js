@@ -97,8 +97,8 @@ export const register = (name, email, password) => {
 };
 
 export const logout = () => {
-	return (dispatch) => {
-		sessionStorage.removeItem("userInfo");
+	return async (dispatch) => {
+		await sessionStorage.removeItem("userInfo");
 		dispatch({ type: USER_LOGOUT });
 	};
 };
@@ -112,20 +112,20 @@ export const getUser = (id) => {
 				userAuth: { userInfo },
 			} = getState();
 
-			const options = {
-				url: `/api/users/${id}`,
-				headers: {
-					"Content-Type": "application/json",
-					Authorization: `Bearer ${userInfo.token}`,
-				},
-			};
+			// const options = {
+			// 	url: `/api/users/${id}`,
+			// 	headers: {
+			// 		"Content-Type": "application/json",
+			// 		Authorization: `Bearer ${userInfo.token}`,
+			// 	},
+			// };
 
-			const resp = await axios(options);
+			// const resp = await axios(options);
 
-			dispatch({
-				type: USER_DETAILS_SUCCESS,
-				payload: resp.data,
-			});
+			// dispatch({
+			// 	type: USER_DETAILS_SUCCESS,
+			// 	payload: resp.data,
+			// });
 		} catch (err) {
 			dispatch({
 				type: USER_DETAILS_FAIL,

@@ -1,62 +1,62 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate, resolvePath } from "react-router-dom";
 import './Profile.css';
 
 import pfp from '../images/avatar_female.png';
+import { getUser } from "../actions/userActions";
 
-class Profile extends React.Component {
+const Profile = () => {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "Brianna",
-      locale: "Madison, WI",
-      points: 0
-    }
+  const [name, setName] = useState("");
+  const [location, getLocation] = useState("");
+  const [coins, getCoins] = useState("");
+
+  const { loading, error, userInfo } = useSelector((state) => {
+		return state.userAuth;
+	});
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const getUserInfo = () => {
+    dispatch(getUser());
+    console.log(userInfo);
+    setName(userInfo.name);  
   }
 
-  getUserInfo() {
-    let profileName = /* API CALL TO DATABASE INDEXED BY USERNAME TO GET NAME*/ "Brianna Tobin";
 
-    let profileLocale = /* API CALL TO DB INDEXED BY USERNAME TO GET NAME*/
-    "Madison, WI"
+  useEffect(() => {
+    console.log('MyComponent onMount');
+    return (e) => {
+        getUserInfo(e);
+        console.log('MyComponent onUnmount');
+    };
+  }, []);
 
-    let profilePoints = /*  API CALL TO DB INDEXED BY USERNAME TO GET POINTS */ 2500;
 
-    this.setState({
-      name: profileName,
-      locale: profileLocale,
-      points: profilePoints
-    })   
-  }
-
-  componentDidMount() {
-    this.getUserInfo();  
-  }
-
-  render() {
-    return (
-        <div className="Profile">
-          <header className="Profile-main">
-            <div className="Profile-pic">
-              <img alt="" src={pfp}/>
-            </div>
-            <div className="Profile-info">
-              <p>
-                {this.state.name} 
-              </p>
-              <p>
-                {this.state.locale}
-              </p>
-              <p>
-                {this.state.points} points
-              </p>
-            </div>
-            
-          </header>
+  return (
+      <div className="Profile">
+        <header className="Profile-main">
+          <div className="Profile-pic">
+            <img alt="" src={pfp}/>
+          </div>
+          <div className="Profile-info">
+            <p>
+              {name}
+            </p>
+            <p>
+              Location: 
+            </p>
+            <p>
+              points
+            </p>
+          </div>
           
-        </div>
-        )
-  }
+        </header>
+        
+      </div>
+      )
 }
 
 export default Profile;
