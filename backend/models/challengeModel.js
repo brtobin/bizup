@@ -31,6 +31,10 @@ const ChallengeSchema = new mongoose.Schema(
 			type: Date,
 			required: true,
 		},
+		reward: {
+			type: Number,
+			required: true,
+		},
 		completedUsers: [
 			{
 				type: mongoose.Schema.Types.ObjectId,

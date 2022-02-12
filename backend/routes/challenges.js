@@ -15,6 +15,8 @@ router.get("/", catchAsync(control.getAllChallenges));
 
 router.get("/:id", catchAsync(control.getChallenge));
 
+router.put("/:user/:id", isBusiness, isHost, catchAsync(control.awardUser));
+
 router.put("/:id", isBusiness, catchAsync(control.updateChallenge));
 
 router.delete("/:id", isBusiness, isHost, catchAsync(control.deleteChallenge));

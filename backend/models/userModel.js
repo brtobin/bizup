@@ -34,15 +34,8 @@ const UserSchema = new mongoose.Schema({
 	},
 	achievements: [
 		{
-			title: { type: String, required: true },
-			category: { type: String, required: true },
-			icon: { type: String, required: true },
-			reward: { type: Number, required: true },
-			id: {
-				type: mongoose.Schema.Types.ObjectId,
-				ref: "Challenge",
-				required: true,
-			},
+			type: mongoose.Schema.Types.ObjectId,
+			ref: "Challenge",
 		},
 	],
 });
