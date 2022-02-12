@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import "./Navbar.css";
-
-
+import { Link } from "react-router-dom"
 
 class Navbar extends React.Component {
 
@@ -31,7 +30,7 @@ class Navbar extends React.Component {
         <div className="container">
           <h2>Bizzup</h2>
           <div className="navbar-right">
-            <p>Feed</p>
+            <Link to="/">Feed</Link>
         </div>
         </div>
       </nav>
