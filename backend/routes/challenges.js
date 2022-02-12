@@ -11,6 +11,8 @@ const control = require("../controllers/challengeControllers");
 
 router.post("/", isBusiness, catchAsync(control.addChallenge));
 
+router.get("/", catchAsync(control.getAllChallenges));
+
 router.get("/:id", catchAsync(control.getChallenge));
 
 router.put("/:id", isBusiness, catchAsync(control.updateChallenge));

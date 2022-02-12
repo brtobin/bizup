@@ -37,6 +37,19 @@ const addChallenge = async (req, res) => {
 	}
 };
 
+const getAllChallenges = async (req, res) => {
+	const challenges = await Challenge.find();
+
+	console.log(challenges);
+
+	if (challenges) {
+		res.json(challenges);
+	} else {
+		res.status(404);
+		throw new Error("Challenges not found");
+	}
+};
+
 const getChallenge = async (req, res) => {
 	const params = req.params;
 	const challenge = await Challenge.findById(params.id).populate("host");
@@ -106,4 +119,4 @@ const deleteChallenge = async () => {
 
 /* -------------------------------------------------------------------------- */
 
-module.exports = { addChallenge, getChallenge, updateChallenge, deleteChallenge };
+module.exports = { addChallenge, getChallenge, updateChallenge, deleteChallenge, getAllChallenges };
