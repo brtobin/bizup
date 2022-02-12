@@ -26,13 +26,13 @@ const LoginBus = (props) => {
   const loginHandler = (event) => {
 		event.preventDefault();
 		// dispatch(login(email, pwd));
-    dispatch(login("kb@progamer.com", "123456", "businesses"));
+    dispatch(login("xy@progamer.com", "123456", "businesses"));
 	};
-
+  
   // Move to home page once userInfo populated
   useEffect(() => {
-		if (userInfo) {
-			navigate(resolvePath(redirectHome), { replace: true });
+    if (userInfo) {
+      navigate(resolvePath(redirectHome));
 		}
 	}, [navigate, userInfo, redirectHome]);
 

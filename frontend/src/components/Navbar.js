@@ -12,19 +12,18 @@ const Navbar = () => {
   const { loading, error, userInfo } = useSelector((state) => {
 		return state.userAuth;
 	});
-  const redirectLogin = "/login/user";
+  const redirectLogin = "/getstarted";
 
   const logoutUser = (e) => {
     console.log("Logging out");
     dispatch(logout());
+    console.log("Redirecting because userInfo = " + userInfo);
+    navigate(resolvePath(redirectLogin), { replace: true });
   } 
 
-  useEffect(() => {
-		if (userInfo === undefined) {
-      console.log("Redirecting because userInfo = " + userInfo);
-			navigate(resolvePath(redirectLogin), { replace: true });
-		}
-	}, [navigate, userInfo, redirectLogin]);
+  const loginNavHandler = (e) => {
+    navigate(resolvePath(redirectLogin), { replace: true });
+  } 
 
   return (
     <nav>
@@ -32,7 +31,15 @@ const Navbar = () => {
         <h2>Bizzup</h2>
         <div className="navbar-right">
           <Link to="/">Feed</Link>
-          <button onClick={(e) => logoutUser(e)}>Logout</button>
+          { userInfo ?
+            (
+              <button onClick={(e) => logoutUser(e)}>Logout</button> 
+            )
+            :
+            (
+              <button onClick={(e) => loginNavHandler(e)}>Sign In</button> 
+            ) 
+          }
       </div>
       </div>
     </nav>
