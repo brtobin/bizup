@@ -1,9 +1,10 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import './Login.css';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { resolvePath, useNavigate } from "react-router-dom";
 import axios from 'axios';
 
-import { login } from "../../actions/userActions";
+import { login } from "../actions/userActions";
 
 
 const Login = () => {
@@ -12,12 +13,26 @@ const Login = () => {
   const [pwd, setPwd] = useState("");
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  const { loading, error, userInfo } = useSelector((state) => {
+		return state.userAuth;
+	});
 
+  const redirectHome = "/";
+
+  // run login handler to update redux state
   const loginHandler = (event) => {
 		event.preventDefault();
 		dispatch(login(email, pwd));
 	};
+
+  // Move to home page once userInfo populated
+  useEffect(() => {
+		if (userInfo) {
+			navigate(resolvePath(redirectHome), { replace: true });
+		}
+	}, [navigate, userInfo, redirectHome]);
 
   return (
       <div className="Login">
