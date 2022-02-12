@@ -98,7 +98,7 @@ export const register = (name, email, password) => {
 
 export const logout = () => {
 	return (dispatch) => {
-		localStorage.removeItem("userInfo");
+		sessionStorage.removeItem("userInfo");
 		dispatch({ type: USER_LOGOUT });
 	};
 };
