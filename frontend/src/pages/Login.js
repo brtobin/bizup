@@ -19,22 +19,22 @@ class Login extends React.Component {
     return (
         <div className="Login">
           <header className="Login-main">
-            <div className="Login-form">
-              <form>
-              <div className="input-container">
-                <label>Username </label>
-                <input type="text" name="uname" required />
-              </div>
-              <div className="input-container">
-                <label>Password </label>
-                <input type="text" name="pass" required />
-              </div>
-              <div className="button-container">
-                <input type="submit" />
-              </div>
-              </form>
-            </div>
-            
+            <div className="Login-card">
+              <h1>Bizzup</h1>
+              <div className="Login-form">
+                <form>
+                  <div className="input-container">
+                    <input className="Login-entry" placeholder="Username" type="text" name="uname" required />
+                  </div>
+                  <div className="input-container">
+                    <input className="Login-entry" placeholder="Password" type="text" name="pass" required />
+                  </div>
+                  <div className="button-container">
+                    <input type="submit" />
+                  </div>
+                </form>
+              </div>             
+            </div>        
           </header>
           
         </div>
