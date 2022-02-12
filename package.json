@@ -9,7 +9,8 @@
 		"dev": "concurrently \"npm run server\" \"npm run client\"",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"data:seed": "node ./backend/data/seed.js",
-		"data:clear": "node ./backend/data/seed.js -d"
+		"data:clear": "node ./backend/data/seed.js -d",
+		"start": "cd ./backend && node index.js"
 	},
 	"repository": {
 		"type": "git",
@@ -23,6 +24,7 @@
 	"homepage": "https://github.com/brtobin/bizup#readme",
 	"dependencies": {
 		"concurrently": "^7.0.0",
+		"ip": "^1.1.5",
 		"nodemon": "^2.0.15"
 	}
 }

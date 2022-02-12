@@ -5,7 +5,7 @@ const generateToken = require("../utils/generateToken");
 /* -------------------------------------------------------------------------- */
 
 const addUser = async (req, res) => {
-	const { name, email, password } = req.body;
+	const { name, email, password, location, age } = req.body;
 
 	const user = await User.findOne({ email });
 
@@ -18,18 +18,20 @@ const addUser = async (req, res) => {
 		name,
 		email,
 		password,
+		location,
+		age,
 	});
 
 	if (newUser) {
 		res.status(201).json({
-			_id: user._id,
-			name: user.name,
-			email: user.email,
-			age: user.age,
-			location: user.location,
-			coins: user.coins,
-			achievements: user.achievements,
-			token: generateToken(user._id),
+			_id: newUser._id,
+			name: newUser.name,
+			email: newUser.email,
+			age: newUser.age,
+			location: newUser.location,
+			coins: newUser.coins,
+			achievements: newUser.achievements,
+			token: generateToken(newUser._id),
 		});
 	} else {
 		res.status(400);
@@ -94,6 +96,10 @@ const updateProfile = async (req, res) => {
 		user.name = req.body.name || user.name;
 		user.email = req.body.email || user.email;
 		user.password = req.body.password || user.password;
+		user.age = req.body.age || user.age;
+		user.location = req.body.location || user.location;
+		user.coins = req.body.coins || user.coins;
+		user.achievements = req.body.achievements || user.achievements;
 
 		const updatedUser = await user.save();
 
