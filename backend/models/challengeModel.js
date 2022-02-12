@@ -7,73 +7,35 @@ export const ChallengeSchema = new mongoose.Schema(
 			ref: "User",
 			required: true,
 		},
-
-		orderItems: [
-			{
-				name: { type: String, required: true },
-				qty: { type: Number, required: true },
-				image: { type: String, required: true },
-				price: { type: Number, required: true },
-				// product id
-				id: {
-					type: mongoose.Schema.Types.ObjectId,
-					ref: "Product",
-					required: true,
-				},
-			},
-		],
-		shippingAddress: {
-			address: { type: String, required: true },
-			city: { type: String, required: true },
-			postalCode: { type: Number, required: true },
-			country: { type: String, required: true },
-		},
-		paymentMethod: {
+        host: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Business",
+        },
+		category: {
 			type: String,
 			required: true,
 		},
-		paymentResult: {
-			id: { type: String },
-			status: { type: String },
-			update_time: { type: String },
-			email_address: { type: String },
-		},
-		itemsPrice: {
-			type: Number,
-			default: 0.0,
+		title: {
+			type: String,
 			required: true,
 		},
-		taxPrice: {
-			type: Number,
-			default: 0.0,
+		description: {
+			type: String,
 			required: true,
 		},
-		shippingPrice: {
-			type: Number,
-			default: 0.0,
+		icon: {
+			type: String,
 			required: true,
 		},
-		totalPrice: {
-			type: Number,
-			default: 0.0,
-			required: true,
-		},
-		isPaid: {
-			type: Boolean,
-			required: true,
-			default: false,
-		},
-		isDelivered: {
-			type: Boolean,
-			required: true,
-			default: false,
-		},
-		paidAt: {
+		startTime: {
 			type: Date,
+            required = true,
 		},
-		deliveredAt: {
+		expirationTime: {
 			type: Date,
+            required = true,
 		},
+        completedUsers: [{type: mongoose.Schema.Types.ObjectId, ref: "User"}]
 	},
 	{ timestamps: true }
 );

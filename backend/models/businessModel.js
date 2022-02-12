@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-
-const { ChallengeSchema } = require("./challengeModel");
+const bcrypt = require("bcryptjs");
 
 const BusinessSchema = new mongoose.Schema({
 	name: {
@@ -28,8 +27,26 @@ const BusinessSchema = new mongoose.Schema({
 		type: String,
 		require: true,
 	},
-	challenges: [ChallengeSchema],
+	challenges: [
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: "Challenge",
+		},
+	],
 });
+
+BusinessSchema.pre("save", async function (next) {
+	if (!this.isModified("password")) {
+		next();
+	}
+
+	const salt = await bcrypt.genSalt(11);
+	this.password = await bcrypt.hash(this.password, salt);
+});
+
+BusinessSchema.methods.matchPassword = async function (password) {
+	return await bcrypt.compare(password, this.password);
+};
 
 const Business = mongoose.model("Business", BusinessSchema);
 
