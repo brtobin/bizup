@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import ChallengeItem from "../components/ChallengeItem/ChallengeItem";
+import ChallengeItem from "../components/ChallengeItem/challengeItem";
 import { listChallenges } from "../actions/challengeActions";
 import "./Home.css";
 import "bootstrap/dist/css/bootstrap.css";
@@ -15,8 +15,6 @@ const Home = () => {
 	useEffect(() => {
 		dispatch(listChallenges());
 	}, [dispatch]);
-
-	console.log(Array.isArray(challenges));
 
 	return (
 		<div className="Home">

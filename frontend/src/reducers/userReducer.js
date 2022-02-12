@@ -57,7 +57,6 @@ export const userDetailsReducer = (state = { user: {} }, action) => {
 };
 
 export const userUpdateReducer = (state = {}, action) => {
-	console.log("In reducer with " + action.type);
 	switch (action.type) {
 		case USER_UPDATE_REQUEST:
 			return { ...state, loading: true };

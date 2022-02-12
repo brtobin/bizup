@@ -21,7 +21,6 @@ const customStyles = {
 
 const BusInfo = () => {
     let business_mode = false;
-
     const [userComplete, setUserComplete] = useState("");
     const dispatch = useDispatch();
 

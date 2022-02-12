@@ -14,6 +14,7 @@ import {
 	CHALLENGE_DELETE_REQUEST,
 	CHALLENGE_DELETE_SUCCESS,
 	CHALLENGE_DELETE_FAIL,
+	CHALLENGE_PUT_REQUEST
 } from "../constants/challengeConst";
 
 import axios from "axios";
@@ -50,3 +51,45 @@ export const listChallenges = () => {
 		}
 	};
 };
+
+export const updateUserChallenge = (userEmail, tok) => {
+	return async (dispatch, getState) => {
+		try {
+			dispatch({
+				type: CHALLENGE_PUT_REQUEST,
+			});
+
+
+			if (tok) {
+				const options = {
+					url: `/api/challenges/${userEmail}/620738e4a417aa58fc2362cf`,
+					method: "PUT",
+					headers: {
+						"Content-Type": "application/json",
+						"Authorization": `Bearer ${tok}`,
+					},
+				};
+	
+				console.log("Maybe send req");
+	
+				const resp = await axios(options);
+	
+				console.log("Status: " + resp.status)
+	
+			} 
+
+			// else, must be signed in
+
+			
+		} catch (err) {
+			dispatch({
+				type: CHALLENGE_GET_FAIL,
+				payload:
+					err.response && err.response.data.message
+						? err.response.data.message
+						: err.message,
+			});
+		}
+	};
+	
+}

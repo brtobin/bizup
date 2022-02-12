@@ -26,8 +26,8 @@ const LoginUser = (props) => {
   // run login handler to update redux state
   const loginHandler = (event) => {
 		event.preventDefault();
-		// dispatch(login(email, pwd));
-    dispatch(login("kb@progamer.com", "123456", "users"));
+		dispatch(login(email, pwd, "users"));
+    // dispatch(login("kb@progamer.com", "123456", "users"));
 	};
 
   // Move to home page once userInfo populated
