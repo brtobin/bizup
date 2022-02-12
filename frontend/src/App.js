@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Navbar from './components/Navbar';
 import Profile from './pages/Profile';
+import { Provider } from 'react-redux';
 
 function App() {
   return (

@@ -5,9 +5,9 @@ class Feed extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      complete: 0,
-      task: 'No task given',
-      points: 0
+        complete: 0,
+        task: 'there is no task',
+        points: 0
     }
   }
 
@@ -15,29 +15,30 @@ class Feed extends React.Component {
     let taskComplete = 0;
     let taskName = 'This is task A'; //TODO get task from API
     let taskPoints = 1000; //TODO get points from API
-    
+    console.log("from get task");
+
     this.setState({
-      complete: taskComplete,
-      task: taskName,
-      points: taskPoints
+        complete: taskComplete,
+        task: taskName,
+        points: taskPoints
     })
   }
 
   componentDidMount() {
-    this.getTask();
+      this.getTask();
   }
-
   render() {
     return(
       <div className='App'>
         <header className='App-header'>
           <div className='Feed'>
-            <input type='checkbox' id='task'></input>
-            <label htmlFor='task'> {this.state.task} </label>
+            <input type='checkbox' id={"task"}></input>
+            <label htmlFor={"task"}> {this.state.task} </label>
+            
           </div>
         </header>
       </div>
-    )
+    );
   }
 
 }

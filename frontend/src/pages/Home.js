@@ -1,15 +1,29 @@
 import React, {useState} from 'react'
-import Feed from '../components/Feed/Feed';
-
+import './Home.css'
 const Home = () => {
-    return (
-    <div className="App">
-      <header className="App-header">
-        <Feed/>
+  
+  let tasks = [];
+  for (let i=0; i<5; i++){
+    tasks.push({
+      complete: 0,
+      task: `There is no task ${i}`,
+      points: 0
+    })
+  }
 
-      </header>
+
+  return(
+
+    <div className='Home'> 
+      {tasks.map( (task, index) => (
+      <p key={index}>
+      <input type='checkbox' id={"task"+index}></input>
+      <label htmlFor={"task"+index}> {task.task} </label>
+      </p>
+      ))}  
     </div>
-    )
+ 
+  );
 }
 
 export default Home
