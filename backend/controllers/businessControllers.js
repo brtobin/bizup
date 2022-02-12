@@ -31,6 +31,7 @@ const addBusiness = async (req, res) => {
 			address: newBusiness.address,
 			image: newBusiness.image,
 			description: newBusiness.description,
+			challenges: newBusiness.challenges,
 			token: generateToken(newBusiness._id),
 		});
 	} else {
@@ -49,10 +50,10 @@ const authBusiness = async (req, res) => {
 			_id: business._id,
 			name: business.name,
 			email: business.email,
-			age: business.age,
-			location: business.location,
-			coins: business.coins,
-			achievements: business.achievements,
+			address: business.address,
+			image: business.image,
+			description: business.description,
+			challenges: business.challenges,
 			token: generateToken(business._id),
 		});
 	} else {
@@ -69,10 +70,10 @@ const getProfile = async (req, res) => {
 			_id: business._id,
 			name: business.name,
 			email: business.email,
-			age: business.age,
-			location: business.location,
-			coins: business.coins,
-			achievements: business.achievements,
+			address: business.address,
+			image: business.image,
+			description: business.description,
+			challenges: business.challenges,
 		});
 	} else {
 		res.status(404);
@@ -96,10 +97,10 @@ const updateProfile = async (req, res) => {
 		business.name = req.body.name || business.name;
 		business.email = req.body.email || business.email;
 		business.password = req.body.password || business.password;
-		business.age = req.body.age || business.age;
-		business.location = req.body.location || business.location;
-		business.coins = req.body.coins || business.coins;
-		business.achievements = req.body.achievements || business.achievements;
+		business.address = req.body.address || business.address;
+		business.image = req.body.image || business.image;
+		business.description = req.body.description || business.description;
+		business.challenges = req.body.challenges || business.challenges;
 
 		const updatedBusiness = await business.save();
 
@@ -107,10 +108,10 @@ const updateProfile = async (req, res) => {
 			_id: updatedBusiness._id,
 			name: updatedBusiness.name,
 			email: updatedBusiness.email,
-			age: updatedBusiness.age,
-			location: updatedBusiness.location,
-			coins: updatedBusiness.coins,
-			achievements: updatedBusiness.achievements,
+			address: updatedBusiness.address,
+			image: updatedBusiness.image,
+			description: updatedBusiness.description,
+			challenges: updatedBusiness.challenges,
 			token: generateToken(updatedBusiness._id),
 		});
 	} else {

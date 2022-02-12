@@ -32,16 +32,7 @@ const destroy = async () => {
 const seed = async () => {
 	try {
 		const newBusiness = await Business.insertMany(businesses);
-		const coolBusiness = newBusiness[0]._id;
-
 		const newUsers = await User.insertMany(users);
-		const coolUser1 = newUsers[0]._id;
-		const coolUser2 = newUsers[1]._id;
-
-		const newChallenges = challenges.map((challenge) => {
-			return { ...challenge, completedUsers: [coolUser1, coolUser2], host: coolBusiness };
-		});
-		await Challenge.insertMany(newChallenges);
 
 		console.log("Data seeded successfully!");
 		process.exit();
