@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import Profile from './pages/Profile';
 import { Provider } from 'react-redux';
 import LoginUser from './pages/LoginUser';
+import BusInfo from './pages/BusInfo';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/login/user" element={<LoginUser />} />
           <Route path="/login/business" element={<LoginBus />} />
+          <Route path="/bus_info" element={<BusInfo />} />
         </Routes>
     </Router>
   );
