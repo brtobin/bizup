@@ -22,7 +22,7 @@ export const login = (email, password) => {
 			dispatch({ type: USER_LOGIN_REQUEST });
 
 			const options = {
-				url: "localhost:5000/api/users/login",
+				url: "/api/users/login",
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",

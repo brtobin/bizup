@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react";
 import './Login.css';
 import { useDispatch, useSelector } from "react-redux";
 import { resolvePath, useNavigate } from "react-router-dom";
-import axios from 'axios';
 
 import { login } from "../actions/userActions";
 
@@ -24,7 +23,9 @@ const Login = () => {
   // run login handler to update redux state
   const loginHandler = (event) => {
 		event.preventDefault();
-		dispatch(login(email, pwd));
+		// dispatch(login(email, pwd));
+    dispatch(login("kb@progamer.com", "123456"));
+    console.log(userInfo);
 	};
 
   // Move to home page once userInfo populated
